@@ -1,4 +1,5 @@
 import { json, redirect } from "react-router-dom";
+import { setAuthToken } from "../utils/auth";
 
 const url = "http://localhost:8080";
 const headers = {
@@ -6,7 +7,7 @@ const headers = {
 };
 const method = "POST";
 
-const handleResponse = (response) => {
+const handleResponse = async (response) => {
   if (response.status === 422 || response.status === 401) {
     return response;
   }
@@ -15,7 +16,11 @@ const handleResponse = (response) => {
     throw json({ message: "Could not authenticate user." }, { status: 500 });
   }
 
-  // soon: manage token
+  const resData = await response.json();
+  const token = resData.token;
+
+  setAuthToken(token);
+
   return redirect("/");
 };
 
@@ -26,7 +31,7 @@ export const signup = async (authData) => {
     body: JSON.stringify(authData),
   });
 
-  return handleResponse(response);
+  return await handleResponse(response);
 };
 
 export const login = async (authData) => {
@@ -36,5 +41,5 @@ export const login = async (authData) => {
     body: JSON.stringify(authData),
   });
 
-  return handleResponse(response);
+  return await handleResponse(response);
 };

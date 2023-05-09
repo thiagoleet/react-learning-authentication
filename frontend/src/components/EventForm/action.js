@@ -1,11 +1,14 @@
 import { json, redirect } from "react-router-dom";
-
-const baseURL = "http://localhost:8080/events";
-const headers = {
-  "Content-Type": "application/json",
-};
+import { getAuthToken } from "../../utils/auth";
 
 const action = async ({ request, params }) => {
+  const token = getAuthToken();
+
+  const baseURL = "http://localhost:8080/events";
+  const headers = {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  };
   const method = request.method;
   const data = await request.formData();
 
