@@ -21,13 +21,15 @@ import {
   action as authAction,
 } from "./pages/Authentication";
 import { action as logoutAction } from "./pages/Logout";
-
 import { action as manipulateEventAction } from "./components/EventForm";
+import { loader as tokenLoader } from "./utils";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    id: "root",
     element: <RootLayout />,
+    loader: tokenLoader,
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },

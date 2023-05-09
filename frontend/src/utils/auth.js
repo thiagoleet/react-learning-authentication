@@ -13,3 +13,7 @@ export function setAuthToken(token) {
 export function removeAuthToken() {
   localStorage.clear(STORE_KEY);
 }
+
+export function loader() {
+  return getAuthToken();
+}
