@@ -1,4 +1,4 @@
 import EventForm from "./EventForm";
-import manipulateEventAction from "./action";
+import action from "./action";
 
-export { EventForm, manipulateEventAction };
+export { EventForm, action };

@@ -1,4 +1,4 @@
 import NewsletterPage from "./NewsletterPage";
-import newsletterAction from "./action";
+import action from "./action";
 
-export { NewsletterPage, newsletterAction };
+export { NewsletterPage, action };

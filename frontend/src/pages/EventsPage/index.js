@@ -1,4 +1,4 @@
 import EventsPage from "./EventsPage";
-import eventsLoader from "./loader";
+import loader from "./loader";
 
-export { EventsPage, eventsLoader };
+export { EventsPage, loader };

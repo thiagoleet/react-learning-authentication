@@ -1,4 +1,4 @@
 import AuthenticationPage from "./Authentication";
-import { action as authAction } from "./action";
+import { action } from "./action";
 
-export { AuthenticationPage, authAction };
+export { AuthenticationPage, action };

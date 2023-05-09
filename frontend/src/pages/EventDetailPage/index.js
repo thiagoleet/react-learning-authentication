@@ -1,5 +1,5 @@
 import EventDetailPage from "./EventDetailPage";
-import eventLoader from "./loader";
-import deleteEventAction from "./action";
+import loader from "./loader";
+import action from "./action";
 
-export { EventDetailPage, eventLoader, deleteEventAction };
+export { EventDetailPage, loader, action };
